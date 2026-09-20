@@ -1,6 +1,10 @@
 package com.o2;
 import javax.swing.*;
 
+import com.o2.t1.Main1;
+import com.o2.t2.Main2;
+import com.o2.t3.Main3;
+
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
@@ -48,18 +52,18 @@ public class Main {
     private static void StartT1(ActionEvent e){
         System.out.println("Starting task 1 in oblig 2");
         String[] args = {};
-        T1.main(args);
+        Main1.main(args);
     }
 
     private static void StartT2(ActionEvent e){
         System.out.println("Starting task 2 in oblig 2");
         String[] args = {};
-        T2.main(args);
+        Main2.main(args);
     }
 
     private static void StartT3(ActionEvent e){
         System.out.println("Starting task 3 in oblig 2");
         String[] args = {};
-        T3.main(args);
+        Main3.main(args);
     }
 }

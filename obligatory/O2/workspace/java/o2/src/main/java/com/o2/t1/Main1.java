@@ -1,8 +1,8 @@
-package com.o2;
+package com.o2.t1;
 
 import javax.swing.JOptionPane;
 
-public class T1 {    
+public class Main1 {    
     private static volatile boolean running = true;
     public static void main(String[] args) {        
         Thread brann = new Thread(()->{
