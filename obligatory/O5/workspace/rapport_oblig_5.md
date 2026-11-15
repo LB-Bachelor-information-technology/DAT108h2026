@@ -1,6 +1,8 @@
 # Oblig 5 - Database og API
-**Gruppe:** DAT108 Oblig5 gr 67
-**Deltagere:** Lars Birger Bergmål 583411
+**Gruppe:** DAT108 Oblig5 gr 67  
+**Deltagere:**  
+Lars Birger Bergmål 583411  
+Markus Fosse Høvring 194918  
 
 ---
 
