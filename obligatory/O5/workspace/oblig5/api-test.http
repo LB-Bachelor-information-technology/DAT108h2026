@@ -1,0 +1,16 @@
+### Hent alle deltagere (krever API-nøkkel)
+GET http://localhost:8080/api/deltagere
+X-API-Key: topsecret
+
+### Opprett en ny deltager
+POST http://localhost:8080/api/deltagere
+X-API-Key: topsecret
+Content-Type: application/json
+
+{
+  "mobil": "12345678",
+  "passord": "hemmelig123",
+  "fornavn": "Ola",
+  "etternavn": "Nordmann",
+  "kjonn": "mann"
+}

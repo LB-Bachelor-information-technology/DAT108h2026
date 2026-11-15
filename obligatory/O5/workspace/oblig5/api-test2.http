@@ -1,0 +1,88 @@
+### ==========================================
+### DEL 1: GET /api/deltagere (Hente alle)
+### ==========================================
+
+### 1. Hent alle deltagere - 200 OK (Gyldig API-nøkkel)
+GET http://localhost:8080/api/deltagere
+X-API-Key: topsecret
+
+### 2. Hent alle deltagere - 401 Unauthorized (Mangler API-nøkkel)
+GET http://localhost:8080/api/deltagere
+
+### 3. Hent alle deltagere - 401 Unauthorized (Ugyldig API-nøkkel)
+GET http://localhost:8080/api/deltagere
+X-API-Key: feilnøkkel
+
+
+### ==========================================
+### DEL 2: GET /api/deltagere/{mobil} (Hente en)
+### ==========================================
+
+### 4. Hent en spesifikk deltager - 200 OK (Gyldig nøkkel og eksisterer)
+GET http://localhost:8080/api/deltagere/12345678
+X-API-Key: topsecret
+
+### 5. Hent en spesifikk deltager - 401 Unauthorized (Ugyldig/manglende nøkkel)
+GET http://localhost:8080/api/deltagere/12345678
+X-API-Key: feilnøkkel
+
+### 6. Hent en spesifikk deltager - 404 Not Found (Finnes ikke i basen)
+GET http://localhost:8080/api/deltagere/99999999
+X-API-Key: topsecret
+
+
+### ==========================================
+### DEL 3: POST /api/deltagere (Opprette ny)
+### ==========================================
+
+### 7. Opprett ny deltager - 201 Created (Alt gyldig)
+POST http://localhost:8080/api/deltagere
+X-API-Key: topsecret
+Content-Type: application/json
+
+{
+  "mobil": "12345676",
+  "passord": "Hemmelig123",
+  "fornavn": "Ola2",
+  "etternavn": "Nordmann",
+  "kjonn": "mann"
+}
+
+### 8. Opprett ny deltager - 401 Unauthorized (Ugyldig/manglende nøkkel)
+POST http://localhost:8080/api/deltagere
+X-API-Key: feilnøkkel
+Content-Type: application/json
+
+{
+  "mobil": "87654321",
+  "passord": "Hemmelig123",
+  "fornavn": "Kari",
+  "etternavn": "Nordmann",
+  "kjonn": "kvinne"
+}
+
+### 9. Opprett ny deltager - 400 Bad Request (Ugyldig input / feil format på mobil)
+POST http://localhost:8080/api/deltagere
+X-API-Key: topsecret
+Content-Type: application/json
+
+{
+  "mobil": "123",
+  "passord": "123",
+  "fornavn": "Ugyldig",
+  "etternavn": "Test",
+  "kjonn": "ukjent"
+}
+
+### 10. Opprett ny deltager - 409 Conflict (Allerede registrert med samme mobil)
+POST http://localhost:8080/api/deltagere
+X-API-Key: topsecret
+Content-Type: application/json
+
+{
+  "mobil": "12345678",
+  "passord": "Hemmelig123",
+  "fornavn": "Per",
+  "etternavn": "Hansen",
+  "kjonn": "mann"
+}
